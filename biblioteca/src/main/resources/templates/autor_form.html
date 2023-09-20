@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!-- <html> -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Autores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="py-5 text-center">
+                <h2>AUTORES</h2>
+                <p class="lead">Completar formulario</p>
+            </div>
+
+
+            <div class="d-flex flex-column flex-md-row p-10 gap-4 py-md-10 align-items-center justify-content-center">
+                <!-- La accion (action) a traves de un metodos POST, va a mandar la informacion a la url /autor/registro -->
+                <form action="/autor/registro"  method="POST">
+<label for="nombre" class="form-label text-start">Nombre del Autor</label>
+                    <!-- el atributo "name" hace referencia al nombre de la variable que recibe como parametro
+                        en el controller , tiene que tener el mismo nombre que en el controlador-->
+                    <input type="text" class="form-control" name="nombre" placeholder="Inserte nombre autor">
+
+                    <!-- Para que se muestre por pantalla mensajes de error o de exito -->
+                    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                        <div class="card-body">
+                            <h5 class="card-title">Error</h5>
+                            <p class="card-text" th:text="${error}"></p>  
+                        </div>
+                    </div>
+                    <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito">
+                        <div class="card-body">
+                            <h5 class="card-title">Exito!</h5>
+                            <p class="card-text" th:text="${exito}"></p>  
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <!-- un boton tipo submit para enviar la informacion  -->
+                    <button type="submit" class="w-100 btn btn-primary btn-lg">Cargar Autor</button>
+
+                    <h1></h1>
+                    <div class="my-4">
+                        <a th:href="@{/}" class="w-100 btn btn-primary btn-lg">Home</a>
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+</html>
